@@ -79,7 +79,7 @@ const [isVisible, setIsVisible] = useState(false);
         ref={textRef}
         className={`intro-p text-draw ${isVisible ? 'reveal' : 'hidden'}`}
       >
-        Hey! I'm Adam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate incidunt praesentium, rerum voluptatem in reiciendis officia harum repudiandae tempore suscipit ex ea, adipisci ab porro.
+        Hey! I'm Adam, a full stack developer with a diverse background and extensive skillset. I've spent many years managing people and projects, learning to measure and maximize impact, and collaborating across teams. I have an excellent eye for detail and love solving problems. 
       </p>
     </div>
   );

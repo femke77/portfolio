@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.thasadith-regular {
+  font-family: "Thasadith", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 .process-item-wrapper,
 .process-item-wrapper-last {
     margin-top: 0px;
@@ -9,7 +18,7 @@
     margin-right: 3px;
 
     filter: grayscale(45%);
-
+    font-family: Thasadith, Arial, sans-serif;
 }
 
 .process-item-wrapper {

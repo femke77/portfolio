@@ -18,7 +18,7 @@ export default function Home() {
     <Box >
       <Welcome />
       <Intro />
-      <About />
+      {/* <About /> */}
       {/* <ScrollingText /> */}
       <Portfolio2 />
       {/* <Portfolio /> */}

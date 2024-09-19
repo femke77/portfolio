@@ -93,7 +93,7 @@ const ProcessAnimation = () => {
                   padding: "4px",
                 }}
               >
-                email@gmail.com
+                adammathis.dev@gmail.com
               </div>
               <div
                 style={{
@@ -104,14 +104,14 @@ const ProcessAnimation = () => {
                   padding: "4px",
                 }}
               >
-                000-000-0000
+                636.284.6762
               </div>
             </div>
 
             </div>
 
             
-            <div style={{padding: "60px", flexBasis: "50%" }}> <p>We are always happy to talk. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <div style={{padding: "60px", flexBasis: "50%" }}> <p>We are always happy to talk.</p>
             <button onClick={()=>navigate("/Contact")} style={{background: "black", color: "white", borderRadius: "10px", height:"50px", width: "150px"}}>Contact Now</button>
             
             </div>

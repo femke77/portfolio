@@ -1,0 +1,49 @@
+.project-hover{
+    color: var(--secondary);
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    /* padding: 50px; */
+    z-index: 900;
+    opacity: 0;
+
+  
+}
+
+.icon-hover {
+    position: absolute;
+    bottom: 4vh;
+    left: 38vh; 
+    /* padding: 50px; */
+    z-index: 999;
+
+}
+
+.project-hover:hover {
+    background-color: var(--alpha);
+    opacity: 1;
+
+    border: 10px solid var(--secondary);
+  }
+  
+  .project-hover h3 {
+    font-size: 2rem;
+  }
+
+
+.fa {
+    -webkit-animation: action 1s infinite  alternate;
+    animation: action 1s infinite  alternate;
+}
+
+@-webkit-keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+@keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}

@@ -1,0 +1,8 @@
+.contact {
+    background-color: white;
+    background: url(./tuktuk.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; 
+    color: black;
+}

@@ -1,0 +1,24 @@
+[
+    {
+      "name": "Green Trail",
+      "description": "Full stack application for communities to market their services and offer responsible travelers the chance to travel like a local.",
+      "link": "https://github.com",
+      "repo": "https://github.com/Crestone-Tech/greentrail-original",
+      "image": "greentrail"
+    },
+    {
+      "name": "Travel Buddy",
+      "description": "A MERN stack application for users to envision, plan and track group trips and their budgets collaboratively.",
+      "link": "https://travel-buddy-e7hd.onrender.com/",
+      "repo": "https://github.com/Crestone-Tech/travel-buddy",
+      "image": "travelbuddy"
+    },
+    {
+      "name": "project 3 test",
+      "description": "Full stack application for communities to market their services and offer responsible travelers the chance to travel like a local.",
+      "link": "https://github.com",
+      "repo": "https://github.com/adammathis05",
+      "image": "avatar"
+    }
+   
+  ]

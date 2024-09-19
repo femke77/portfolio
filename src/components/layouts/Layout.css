@@ -1,0 +1,30 @@
+.slide-right {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    animation: 4s slide-right ease-out forwards;
+   
+}
+
+@keyframes slide-right {
+    from {
+        transform: translateX(-150vw);
+     }
+    to {
+        transform: translateX(0);
+     }
+}
+
+.slide-left {
+    animation: 4s slide-left ease-out forwards;
+}
+
+@keyframes slide-left {
+    from {
+        transform: translateX(150vw);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+

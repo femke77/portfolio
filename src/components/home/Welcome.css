@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+
+@keyframes showTopText {
+  0% {
+    transform: translate3d(0, 100%, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(0, 50%, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes showBottomText {
+  0% {
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+.animated-title, .title {
+  color: #ffffff;
+  font-family: Roboto, Arial, sans-serif;
+  height: 80vmin;
+  margin-top: 20vmin;
+
+}
+
+.animated-title>div, .title>div {
+  height: 32vmin; /* combination of this plus span height in div div span below*/
+  overflow: hidden;
+
+  width: 100%;
+}
+
+.animated-title>div div , .title>div div {
+  font-size: 12vmin;
+  padding: 1.5vmin 0;
+
+}
+
+.animated-title>div div span, .title>div div span {
+  display: block;
+  height: 12vmin;  /* combination of this plust height in .animated-title>div  above change  */
+  
+
+}
+div.text-bottom {
+  height: 60vmin;
+}
+.animated-title>div.text-top, .title>div.text-top {
+  border-bottom: 1vmin solid #f0e8e8;
+ 
+}
+
+.animated-title>div.text-top div {
+  animation: showTopText 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+   bottom: 0;
+  transform: translate(0, 100%);
+}
+
+.animated-title>div.text-top div span:first-child, .title>div.text-top div span:first-child {
+  color: #a79f9f;
+}
+
+
+.animated-title>div.text-bottom div {
+  animation: showBottomText 0.5s;
+  animation-delay: 1.75s;
+  animation-fill-mode: forwards;
+  transform: translate(0, -100%);
+
+
+  
+
+}
+
+

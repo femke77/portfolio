@@ -41,6 +41,7 @@ export default function ScrollAnimation() {
           fontSize: {
             xs: "80px",
             sm: "199px",
+            lg: "100px",
    
           },
           transition: "transform 0.2s linear",
@@ -56,8 +57,8 @@ export default function ScrollAnimation() {
 
         {/* Alternate: */}
 
-        WORK<span style={{ color: "blue" }}>WORK</span>WORK
-        <span style={{ color: "blue" }}>WORK</span>WORKWORKWORK
+        PROJECTS <span style={{ color: "#A5A9B4" }}> PROJECTS </span> PROJECTS
+        <span style={{ color: "#A5A9B4" }}> PROJECTS </span> PROJECTS
       </Box>
     </Box>
   );

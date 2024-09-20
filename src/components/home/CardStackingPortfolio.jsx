@@ -60,7 +60,7 @@ const ProcessAnimation = () => {
             trigger: containerRef.current,
             pin: true,
             scrub: 0.1,
-            start: "top -70",
+            start: "top top",
             end: `+=${sections.length * 600}vw`,
             invalidateOnRefresh: true,
           },

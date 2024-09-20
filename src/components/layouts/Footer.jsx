@@ -10,12 +10,12 @@ export default function Footer() {
                     display: "flex",
                     paddingTop: "15px",
                     fontFamily: "Thasadith",
-                    fontSize: "2em",
+                    fontSize: "1.5em",
                     textAlign: "center",
                     justifyContent: "center",
                     color: "#A5A9B4",
                 }}>
-                    Adam Mathis  &#128526; 2024
+                    Footer
                 </Typography>
             </Box>
         </footer>

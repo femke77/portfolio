@@ -67,3 +67,21 @@ main {
     transform: translateX(-100%) rotate(var(--shine-deg));
   }
 }
+
+html, body, #root, main {
+  background: linear-gradient(105deg,#0d324d,#1b4e74,#7f5a83,#ad94af);
+  background-size: 240% 240%;
+  animation: gradient-animation 18s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

@@ -25,6 +25,17 @@ import TextScrambleComponent from "./TextScramble";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const styles = {
+  buttonStyles: {
+    border: "1px solid black",
+    borderRadius: "10px",
+    width: "100%",
+    textAlign: "center",
+    padding: "4px",
+    marginTop: "5px",
+  },
+};
+
 const ProcessAnimation = () => {
   const navigate = useNavigate();
 
@@ -86,7 +97,7 @@ const ProcessAnimation = () => {
           <Box
             ref={(el) => (sectionsRef.current[index] = el)}
             className="process-item-wrapper"
-            sx={{ width: { md: "35vw", lg: "25vw", xl: "25vw" } }}
+            sx={{ width: { md: "35vw", lg: "25vw", xl: "25vw" } }} // adjusting these also means adjusting the calculateXPerfect function
             key={project.name}
           >
             <ProjectCard project={project} index={index + 1} />
@@ -97,7 +108,7 @@ const ProcessAnimation = () => {
         <Box
           className="process-item-wrapper-last"
           ref={(el) => (sectionsRef.current[data.length] = el)}
-          sx={{ width: { md: "72vw", lg: "76vw", xl: "76vw" } }}
+          sx={{ width: { md: "72vw", lg: "76vw", xl: "76vw" } }} // adjusting these also means adjusting the calculateXPercent function
         >
           <div style={{ display: "flex" }}>
             <div style={{ padding: "25px", flexBasis: "45%" }}>
@@ -107,32 +118,27 @@ const ProcessAnimation = () => {
               </h1>
               <div style={{ marginLeft: "25px" }}>
                 <div
-                  style={{
-                    border: "1px solid black",
-                    borderRadius: "10px",
-                    width: "80%",
-                    textAlign: "center",
-                    padding: "4px",
-                  }}
+                 style={
+                  styles.buttonStyles
+                }
                 >
                   <TextScrambleComponent
-                    phrases={["Email Adam!", "001110001111", "adammathis.dev@gmail.com"]}
-                    style={{fontWeight: "bold"}}
-                 />
+                    phrases={[
+                      "Email Adam!",
+                      "001110001111",
+                      "adammathis.dev@gmail.com",
+                    ]}
+                    style={{ fontWeight: "bold" }}
+                  />
                 </div>
                 <div
-                  style={{
-                    border: "1px solid black",
-                    borderRadius: "10px",
-                    width: "80%",
-                    textAlign: "center",
-                    padding: "4px",
-                    marginTop: "5px",
-                  }}
+                  style={
+                    styles.buttonStyles
+                  }
                 >
                   <TextScrambleComponent
                     phrases={["Call Now!", "001110001111", "636.284.6762"]}
-                    style={{fontWeight: "bold"}}
+                    style={{ fontWeight: "bold" }}
                   />
                 </div>
               </div>

@@ -48,7 +48,7 @@ export default function Socials({
     fetch(PDF).then((response) => {
       response.blob().then((blob) => {
         const fileURL = URL.createObjectURL(blob);
-        //open(fileURL, '_blank')  //alternative to the a link opens embedded adobe viewer
+        //open(fileURL, '_blank')  //TRY ME : alternative to the a link opens embedded adobe viewer
         let alink = document.createElement("a");
         alink.href = fileURL;
         alink.download = "your-name-resume.pdf";

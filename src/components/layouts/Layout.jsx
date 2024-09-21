@@ -13,8 +13,6 @@ export default function Layout({bgStyles, children}) {
 
     //const [animated, setAnimated] = React.useState(false);  // lifted state for animation ??? 
 
-    
-    
     const path = useLocation().pathname;
     const location = path.split("/")[1];
     const isMobile = useMediaQuery('(max-width:700px)');
@@ -37,7 +35,7 @@ export default function Layout({bgStyles, children}) {
                 <Nav />
             </Grid>
             <Grid item={true} sx={{ padding: "20px"}} xs={10.5} sm={10} md={10} lg={10}>
-               {children}   {/* lifted state would have to send props to children */}
+               {children}   {/* lifted state would have to send props to children with cloneElement. Going with context instead.*/}
             </Grid>
             <Grid  item={true} sx={{flexDirection: "column", alignItems: "center", }} xs={0} sm={1} md={1} lg={1}>
                 {!isMobile ? (<Socials styles={styles.socials} placement={'right' } color={'secondary'} background={'transparent'} isMobile={isMobile} />) : ("")}

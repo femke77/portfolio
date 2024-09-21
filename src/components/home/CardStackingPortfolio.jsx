@@ -6,11 +6,39 @@ import ScrollingText from "./ScrollingText";
 import data from "../../utils/projectdata.json";
 import ProjectCard from "./ProjectCard";
 import { useNavigate } from "react-router-dom";
+import Box from "@mui/system/Box";
+import TextScrambleComponent from "./TextScramble";
+
+// FIXME : binary letter animation on email and phonek needs to change to onHover
+// FIXME BELOW 900 NEEDS WORK
+// xs, extra-small: 0px
+// sm, small: 600px
+
+// LOOKS GOOD:
+// md, medium: 900px -
+// lg, large: 1200px -
+// xl, extra-large: 1536px -
+
+// When the screen gets really huge, maybe just reduce center container size
+
+// FIXME : spacing between scrolling text and cards and below cards all needs updating
 
 gsap.registerPlugin(ScrollTrigger);
 
+const styles = {
+  buttonStyles: {
+    border: "1px solid black",
+    borderRadius: "10px",
+    width: "100%",
+    textAlign: "center",
+    padding: "4px",
+    marginTop: "5px",
+  },
+};
+
 const ProcessAnimation = () => {
   const navigate = useNavigate();
+
   const containerRef = useRef(null);
   const sectionsRef = useRef([]);
 
@@ -18,17 +46,22 @@ const ProcessAnimation = () => {
     const sections = sectionsRef.current;
 
     const calculateXPercent = (index) => {
-      if (index === data.length) {
-        // last card is the larger 'work together' card
-        return -index * 32;
+      if (window.innerWidth >= 1200) {
+        if (index === data.length) {
+          return -index * 31.5;
+        }
+        return -index * 100 + (index > 0 ? 4.5 * index : 0);
+      } else {
+        if (index === data.length) {
+          return -index * 46.5;
+        }
+        return -index * 100 + (index > 0 ? 4.5 * index : 0);
       }
-      return -index * 100 + (index > 0 ? 4.5 * index : 0);
     };
-
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
 
-      mm.add("(min-width: 767px)", () => {
+      mm.add("(min-width: 900px)", () => {
         // Horizontal scroll effect
         gsap.to(sections, {
           xPercent: (i) => calculateXPercent(i),
@@ -38,8 +71,7 @@ const ProcessAnimation = () => {
             trigger: containerRef.current,
             pin: true,
             scrub: 0.1,
-
-            start: "top -70",
+            start: "top top",
             end: `+=${sections.length * 600}vw`,
             invalidateOnRefresh: true,
           },
@@ -59,65 +91,83 @@ const ProcessAnimation = () => {
   return (
     <div ref={containerRef} id="projects" style={{ overflow: "hidden" }}>
       <ScrollingText />
-{/* TODO Mobile view is not done at all */}
+
       <div className="pin-process">
-        <div className="inner-div">
-          {data.map((project, index) => (
-            <div
-              ref={(el) => (sectionsRef.current[index] = el)}
-              className="process-item-wrapper"
-              key={project.name}
-            >
-              <ProjectCard project={project} index={index + 1} />
-            </div>
-          ))}
-{/* TODO need to make this card take the right size depending on screen width */}
-          {/* Last card not in map, static */}
-          <div
-            ref={(el) => (sectionsRef.current[data.length] = el)}
-            className="process-item-wrapper-last"
+        {data.map((project, index) => (
+          <Box
+            ref={(el) => (sectionsRef.current[index] = el)}
+            className="process-item-wrapper"
+            sx={{ width: { md: "35vw", lg: "25vw", xl: "25vw" } }} // adjusting these also means adjusting the calculateXPerfect function
+            key={project.name}
           >
+            <ProjectCard project={project} index={index + 1} />
+          </Box>
+        ))}
 
-            <div style={{display: "flex"}}>
-
-            <div style={{ padding: "20px", flexBasis: "50%"      }}>
+        {/* Last card not in map, static */}
+        <Box
+          className="process-item-wrapper-last"
+          ref={(el) => (sectionsRef.current[data.length] = el)}
+          sx={{ width: { md: "72vw", lg: "76vw", xl: "76vw" } }} // adjusting these also means adjusting the calculateXPercent function
+        >
+          <div style={{ display: "flex" }}>
+            <div style={{ padding: "25px", flexBasis: "45%" }}>
               <div>Contact </div>
-              <h1 style={{ fontSize: "3.5rem" }}>Let's Work Together!</h1>
+              <h1 style={{ fontSize: "clamp(1.5rem, 2.5rem, 4.5rem)" }}>
+                Let's Work Together!
+              </h1>
               <div style={{ marginLeft: "25px" }}>
-              <div
-                style={{
-                  border: "1px solid black",
-                  borderRadius: "10px",
-                  width: "40%",
-                  textAlign: "center",
-                  padding: "4px",
-                }}
-              >
-                adammathis.dev@gmail.com
-              </div>
-              <div
-                style={{
-                  border: "1px solid black",
-                  borderRadius: "10px",
-                  width: "40%",
-                  textAlign: "center",
-                  padding: "4px",
-                }}
-              >
-                636.284.6762
+                <div
+                 style={
+                  styles.buttonStyles
+                }
+                >
+                  <TextScrambleComponent
+                    phrases={[
+                      "Email Adam!",
+                      "001110001111",
+                      "adammathis.dev@gmail.com",
+                    ]}
+                    style={{ fontWeight: "bold" }}
+                  />
+                </div>
+                <div
+                  style={
+                    styles.buttonStyles
+                  }
+                >
+                  <TextScrambleComponent
+                    phrases={["Call Now!", "001110001111", "636.284.6762"]}
+                    style={{ fontWeight: "bold" }}
+                  />
+                </div>
               </div>
             </div>
 
-            </div>
-
-            
-            <div style={{padding: "60px", flexBasis: "50%" }}> <p>We are always happy to talk.</p>
-            <button onClick={()=>navigate("/Contact")} style={{background: "black", color: "white", borderRadius: "10px", height:"50px", width: "150px"}}>Contact Now</button>
-            
-            </div>
+            <div style={{ padding: "60px 30px 60px 0px", flexBasis: "60%" }}>
+              {" "}
+              <p>
+                We are always happy to talk. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Lorem ipsum dolor sit amet
+                consectetur, adipisicing elit. Sit consequatur rerum sapiente
+                excepturi deserunt ducimus voluptates deleniti alias nemo
+                doloribus beatae vero harum quas enim
+              </p>
+              <button
+                onClick={() => navigate("/Contact")}
+                style={{
+                  background: "black",
+                  color: "white",
+                  borderRadius: "10px",
+                  height: "50px",
+                  width: "150px",
+                }}
+              >
+                Contact Now
+              </button>
             </div>
           </div>
-        </div>
+        </Box>
       </div>
     </div>
   );

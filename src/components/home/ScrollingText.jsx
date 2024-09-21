@@ -33,6 +33,7 @@ export default function ScrollAnimation() {
         whiteSpace: "nowrap",
         width: "100%",
         overflow: "hidden",
+        marginBottom: "50px"
       }}
     >
       <Box
@@ -40,7 +41,7 @@ export default function ScrollAnimation() {
         sx={{
           fontSize: {
             xs: "80px",
-            sm: "199px",
+            sm: "100px",
             lg: "100px",
    
           },

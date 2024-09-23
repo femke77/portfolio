@@ -15,7 +15,7 @@ export default function Home() {
       <Intro />
       <Portfolio2 />
       <Skills />
-      <IconTicker />
+
       <Footer />
     </Box>
   );

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
-const colors = ["#f38630", "#6fb936", "#ccc", "blue"];
+const colors = ["#f38630", "#6fb936", "#ccc", "#ff0000", "#0000ff"];
 
 export default function IconTicker() {
   const boxesRef = useRef([]);
@@ -16,7 +16,7 @@ export default function IconTicker() {
     const loop = horizontalLoop(boxes, { paused: false, repeat: -1 });
 
     return () => {
-      loop.kill(); // Cleanup on unmount
+      loop.kill(); 
     };
   }, []);
 
@@ -109,19 +109,22 @@ export default function IconTicker() {
       <div className="box" ref={el => (boxesRef.current[0] = el)} style={{ display: "inline-block", width: "150px", height: "100px" }}></div>
       <div className="box" ref={el => (boxesRef.current[1] = el)} style={{ display: "inline-block", width: "150px", height: "100px" }}></div>
       <div className="box" ref={el => (boxesRef.current[2] = el)} style={{ display: "inline-block", width: "150px", height: "100px" }}></div>
-      <div className="box" ref={el => (boxesRef.current[3] = el)} style={{ display: "inline-block", width: "150px", height: "100px" }}></div>
-      <div className="box" ref={el => (boxesRef.current[4] = el)} style={{ display: "inline-block", width: "150px", height: "100px" }}></div>
+      <div className="box" ref={el => (boxesRef.current[3] = el)} style={{ display: "inline-block", width: "100px", height: "100px" }}></div>
+      <div className="box" ref={el => (boxesRef.current[4] = el)} style={{ display: "inline-block", width: "125px", height: "100px" }}></div>
       <div className="box" ref={el => (boxesRef.current[5] = el)} style={{ display: "inline-block", width: "150px", height: "100px" }}></div>
       <div className="box" ref={el => (boxesRef.current[6] = el)} style={{ display: "inline-block", width: "150px", height: "100px" }}></div>
-      <div className="box" ref={el => (boxesRef.current[7] = el)} style={{ display: "inline-block", width: "150px", height: "100px" }}></div>
+      <div className="box" ref={el => (boxesRef.current[7] = el)} style={{ display: "inline-block", width: "170px", height: "100px" }}></div>
       <div className="box" ref={el => (boxesRef.current[8] = el)} style={{ display: "inline-block", width: "150px", height: "100px" }}></div>
       <div className="box" ref={el => (boxesRef.current[9] = el)} style={{ display: "inline-block", width: "150px", height: "100px" }}></div>
-      <div className="box" ref={el => (boxesRef.current[10] = el)} style={{ display: "inline-block", width: "150px", height: "100px" }}></div>
-      <div className="box" ref={el => (boxesRef.current[11] = el)} style={{ display: "inline-block", width: "150px", height: "100px" }}></div>
+      <div className="box" ref={el => (boxesRef.current[10] = el)} style={{ display: "inline-block", width: "200px", height: "100px" }}></div>
+      <div className="box" ref={el => (boxesRef.current[11] = el)} style={{ display: "inline-block", width: "50px", height: "100px" }}></div>
       <div className="box" ref={el => (boxesRef.current[12] = el)} style={{ display: "inline-block", width: "150px", height: "100px" }}></div>
       <div className="box" ref={el => (boxesRef.current[13] = el)} style={{ display: "inline-block", width: "150px", height: "100px" }}></div>
       <div className="box" ref={el => (boxesRef.current[14] = el)} style={{ display: "inline-block", width: "150px", height: "100px" }}></div>
       <div className="box" ref={el => (boxesRef.current[15] = el)} style={{ display: "inline-block", width: "150px", height: "100px" }}></div>
+      <div className="box" ref={el => (boxesRef.current[16] = el)} style={{ display: "inline-block", width: "150px", height: "100px" }}></div>
+      <div className="box" ref={el => (boxesRef.current[17] = el)} style={{ display: "inline-block", width: "150px", height: "100px" }}></div>
+      <div className="box" ref={el => (boxesRef.current[18] = el)} style={{ display: "inline-block", width: "150px", height: "100px" }}></div>
     </div>
   );
 }

@@ -168,8 +168,8 @@ export default function Skills() {
           alt={skill.alt}
           title={skill.title}
           style={{
-            width: "125px",
-            height: "100px",
+            width: "100px",
+            height: "75px",
             display: "inline-block",
             objectFit: "contain",
             backgroundColor: "transparent",

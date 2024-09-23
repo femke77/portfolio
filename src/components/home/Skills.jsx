@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import Box from "@mui/material/Box";
+import { Box } from "@mui/material";
 import javaScriptLogo from "../../assets/images/logos/javascript-logo.png";
 import bootstrapLogo from "../../assets/images/logos/bootstrap-logo.png";
 import cssLogo from "../../assets/images/logos/css-logo.png";
@@ -14,7 +14,7 @@ import postgresqlLogo from "../../assets/images/logos/postgresql-logo.png";
 import reactLogo from "../../assets/images/logos/react-logo.png";
 import sequelizeLogo from "../../assets/images/logos/sequelize-logo.png";
 
-// doubled on purpose for the extra large screens 
+// doubled on purpose for the extra large screens
 const skills = [
   { title: "JavaScript", src: javaScriptLogo, alt: "JavaScript Logo" },
   { title: "Express", src: expressLogo, alt: "Express Logo" },
@@ -162,6 +162,7 @@ export default function Skills() {
     >
       {skills.map((skill, index) => (
         <img
+          key={index}
           ref={(el) => (boxesRef.current[index] = el)}
           src={skill.src}
           alt={skill.alt}

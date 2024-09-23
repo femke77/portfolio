@@ -14,7 +14,20 @@ import postgresqlLogo from "../../assets/images/logos/postgresql-logo.png";
 import reactLogo from "../../assets/images/logos/react-logo.png";
 import sequelizeLogo from "../../assets/images/logos/sequelize-logo.png";
 
+// doubled on purpose for the extra large screens 
 const skills = [
+  { title: "JavaScript", src: javaScriptLogo, alt: "JavaScript Logo" },
+  { title: "Express", src: expressLogo, alt: "Express Logo" },
+  { title: "Node.js", src: nodeLogo, alt: "Node.js Logo" },
+  { title: "React", src: reactLogo, alt: "React Logo" },
+  { title: "MUI", src: muiLogo, alt: "MUI Logo" },
+  { title: "CSS", src: cssLogo, alt: "CSS Logo" },
+  { title: "GitHub", src: githubLogo, alt: "GitHub Logo" },
+  { title: "PostgreSQL", src: postgresqlLogo, alt: "PostgreSQL Logo" },
+  { title: "MongoDB", src: mongodbLogo, alt: "MongoDB Logo" },
+  { title: "Sequelize", src: sequelizeLogo, alt: "Sequelize Logo" },
+  { title: "Bootstrap", src: bootstrapLogo, alt: "Bootstrap Logo" },
+  { title: "Handlebars", src: handlebarsLogo, alt: "Handlebars Logo" },
   { title: "JavaScript", src: javaScriptLogo, alt: "JavaScript Logo" },
   { title: "Express", src: expressLogo, alt: "Express Logo" },
   { title: "Node.js", src: nodeLogo, alt: "Node.js Logo" },

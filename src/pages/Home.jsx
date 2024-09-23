@@ -5,7 +5,7 @@ import Welcome from "../components/home/Welcome";
 import Box from "@mui/material/Box";
 import "../components/home/Intro.css"; // Import CSS file for styles
 import Portfolio2 from "../components/home/CardStackingPortfolio";
-
+import IconTicker from "../components/home/IconTicker";
 // TODO Parallax effects on this page
 
 export default function Home() {
@@ -15,6 +15,7 @@ export default function Home() {
       <Intro />
       <Portfolio2 />
       <Skills />
+
       <Footer />
     </Box>
   );

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-const useTextScramble = (chars = '0101') => {
+const useTextScramble = (chars = '01') => {
   const queueRef = useRef([]);
   const frameRef = useRef(0);
   const frameRequestRef = useRef(null);
@@ -16,13 +16,15 @@ const useTextScramble = (chars = '0101') => {
       let { from, to, start, end, char } = queueRef.current[i];
       if (frameRef.current >= end) {
         complete++;
+        console.log(output);
+        
         output += to;
       } else if (frameRef.current >= start) {
         if (!char || Math.random() < 0.28) {
           char = randomChar();
           queueRef.current[i].char = char;
         }
-        output += `<span class="dud">${char}</span>`;
+        output += `${char}`;
       } else {
         output += from;
       }
@@ -79,10 +81,12 @@ const TextScrambleComponent = (props) => {
   const handleMouseEnter = () => {
     const next = () => {
       setTextScramble(phrases[counter], elRef.current).then(() => {
+        
         counter++;
         if (counter < phrases.length) {
           setTimeout(next, 800); // Continue to the next phrase
         } else {
+        
           counter = 0; // Reset counter after completing the cycle
         }
       });

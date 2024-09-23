@@ -124,7 +124,7 @@ const ProcessAnimation = () => {
                 >
                   <TextScrambleComponent
                     phrases={[
-                      "Email Adam!",
+                      "Email Adam Now!",
                       "001110001111",
                       "adammathis.dev@gmail.com",
                     ]}
@@ -137,7 +137,7 @@ const ProcessAnimation = () => {
                   }
                 >
                   <TextScrambleComponent
-                    phrases={["Call Now!", "001110001111", "636.284.6762"]}
+                    phrases={["Call Adam Now!", "001110001111", "636.284.6762"]}
                     style={{ fontWeight: "bold" }}
                   />
                 </div>

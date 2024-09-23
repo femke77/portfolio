@@ -81,7 +81,7 @@ const TextScrambleComponent = (props) => {
       setTextScramble(phrases[counter], elRef.current).then(() => {
         counter++;
         if (counter < phrases.length) {
-          setTimeout(next, 800); // Continue to the next phrase
+          setTimeout(next, 600); // Continue to the next phrase
         } else {
           counter = 0; // Reset counter after completing the cycle
         }

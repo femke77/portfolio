@@ -320,8 +320,9 @@ export default function Nav() {
                 </li>
                 <li>
                   <Button sx={{ color: "white" }}>
+                    {/* TODO Scrolls to "Intro" but should be "About" - Fix this */}
                     <ScrollLink
-                      to="about"
+                      to="intro"
                       spy={true}
                       offset={-75}
                       duration={500}
@@ -332,6 +333,7 @@ export default function Nav() {
                 </li>
                 <li>
                   <Button sx={{ color: "white" }}>
+                    {/* TODO See above: Fix this */}
                     <ScrollLink
                       to="intro"
                       spy={true}
@@ -383,7 +385,7 @@ export default function Nav() {
               </>
             )}
           </ul>
-          <ScrollLink to="intro" spy={true} offset={-75} duration={500}>
+          <ScrollLink to="home" spy={true} offset={-75} duration={500}>
             <Fab
               color="secondary"
               className="metallic-button"

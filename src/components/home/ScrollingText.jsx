@@ -10,6 +10,8 @@ export default function ScrollAnimation() {
     }
   };
 
+  const customFont = new FontFace('Mongondow', 'url(../../assets/fonts/Mongondown.otf');
+
   useEffect(() => {
     const handleScroll = () => {
       const lastKnownScrollPosition = window.scrollY;
@@ -42,9 +44,10 @@ export default function ScrollAnimation() {
           fontSize: {
             xs: "80px",
             sm: "100px",
-            lg: "100px",
+            lg: "140px",
    
           },
+          fontFamily: 'Mongondow',
           transition: "transform 0.2s linear",
           paddingRight: "100px",
           letterSpacing: "0.5px",
@@ -59,7 +62,7 @@ export default function ScrollAnimation() {
         {/* Alternate: */}
 
         PROJECTS <span style={{ color: "#A5A9B4" }}> PROJECTS </span> PROJECTS
-        <span style={{ color: "#A5A9B4" }}> PROJECTS </span> PROJECTS
+        <span style={{ color: "#A5A9B4" }}> PROJECTS </span> PROJECTS  
       </Box>
     </Box>
   );

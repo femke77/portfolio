@@ -1,11 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Rosario:ital,wght@0,600;1,600&display=swap');
+@font-face { 
+  font-family: 'Mongondow'; 
+  src: url('../../assets/fonts/Mongondow.otf') format('woff'); 
+  src: url('../../assets/fonts/Mongondow.otf') format('woff2'); 
+  src: url('../../assets/fonts/Mongondow.otf') format('truetype');
+  font-weight: normal; 
+  font-style: normal; 
+}
 
+@font-face { 
+  font-family: 'Triforce'; 
+  src: url('../../assets/fonts/Triforce.ttf') format('woff'); 
+  src: url('../../assets/fonts/Triforce.ttf') format('woff2'); 
+  src: url('../../assets/fonts/Triforce.ttf') format('truetype');
+  font-weight: normal; 
+  font-style: normal; 
+}
 
-.rosario-regular {
-  font-family: "Rosario", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
+@font-face { 
+  font-family: 'Qanoar'; 
+  src: url('../../assets/fonts/Qanoar.otf') format('woff'); 
+  src: url('../../assets/fonts/Qanoar.otf') format('woff2');
+  src: url('../../assets/fonts/Qanoar.otf') format('truetype');
+  font-weight: normal; 
+  font-style: normal; 
+}
+
+@font-face { 
+  font-family: 'Bolton'; 
+  src: url('../../assets/fonts/Bolton.ttf') format('woff'); 
+  src: url('../../assets/fonts/Bolton.ttf') format('woff2'); 
+  src: url('../../assets/fonts/Bolton.ttf') format('truetype');
+  font-weight: normal; 
+  font-style: normal; 
+}
+
+@font-face { 
+  font-family: 'BoltonTitleShadow'; 
+  src: url('../../assets/fonts/BoltonTitlingShadowed.ttf') format('woff'); 
+  src: url('../../assets/fonts/BoltonTitlingShadowed.ttf') format('woff2'); 
+  src: url('../../assets/fonts/BoltonTitlingShadowed.ttf') format('truetype');
+  font-weight: normal; 
+  font-style: normal; 
+}
+
+@font-face { 
+  font-family: 'BoltonShadow'; 
+  src: url('../../assets/fonts/BoltonShadowed.ttf') format('woff'); 
+  src: url('../../assets/fonts/BoltonShadowed.ttf') format('woff2'); 
+  src: url('../../assets/fonts/BoltonShadowed.ttf') format('truetype');
+  font-weight: normal; 
+  font-style: normal; 
 }
 
 @keyframes showTopText {
@@ -36,7 +80,7 @@
 
 .animated-title, .title {
   color: #ffffff;
-  font-family: Rosario, Arial, sans-serif;
+  font-family: Triforce;
   height: 80vmin;
   margin-top: 20vmin;
 

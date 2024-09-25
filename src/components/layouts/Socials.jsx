@@ -6,7 +6,7 @@ import SendIcon from "@mui/icons-material/Send";
 import { styled } from "@mui/material/styles";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import Fab from "@mui/material/Fab";
-import PDF from "../../assets/fake-resume.pdf";
+import PDF from "../../assets/resume.pdf";
 
 const socialIcons = [
   {
@@ -51,7 +51,7 @@ export default function Socials({
         //open(fileURL, '_blank')  //TRY ME : alternative to the a link opens embedded adobe viewer
         let alink = document.createElement("a");
         alink.href = fileURL;
-        alink.download = "your-name-resume.pdf";
+        alink.download = "Adam Mathis Resume.pdf";
         alink.click();
       });
     });
@@ -81,7 +81,7 @@ export default function Socials({
           </Fab>
         </StyledTooltip>
       ))}
-      <StyledTooltip title={"My Resume"} placement={placement} arrow>
+      <StyledTooltip title={"Download My Resume"} placement={placement} arrow>
         <Fab
           color={"black"}
           aria-label={"My Resume"}

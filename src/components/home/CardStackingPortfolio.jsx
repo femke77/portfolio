@@ -102,7 +102,7 @@ const ProcessAnimation = () => {
   }, []);
 
   return (
-    <div ref={containerRef} id="projects" style={{ overflow: "hidden", height:"100vh", paddingBottom:"10px"}}>
+    <div ref={containerRef} id="projects" style={{ overflow: "hidden", height:"100vh"}}>
       <ScrollingText />
 
       <div className="pin-process">

@@ -61,32 +61,41 @@ const ProcessAnimation = () => {
     };
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
-
+    
       mm.add("(min-width: 900px)", () => {
-        // Horizontal scroll effect
-        gsap.to(sections, {
-          xPercent: (i) => calculateXPercent(i),
-          duration: (i) => 0.5 * i,
-          ease: "none",
+        // Create the timeline
+        const tl = gsap.timeline({
           scrollTrigger: {
             trigger: containerRef.current,
             pin: true,
             scrub: 0.1,
             start: "top 30vh",
-            end: "800vh", //FIXME extend time before next section starts to scroll
+            end: "800vh", // Adjust the scroll end point if needed
             invalidateOnRefresh: true,
           },
         });
+    
+        // Animate the entire container, moving all sections together
+        tl.to(sections, {
+          xPercent: (i) => calculateXPercent(i), // Move the container to the left by the total width of all sections
+          ease: "none",
+          duration: 3 , // Set uniform duration
+        });
+    
+        // Pause for 2 seconds at the end of the animation
+        tl.set({}, {}, "+=2"); // Pauses for 2 seconds at the end
       });
-
-      return () => {  
+    
+      return () => {
         mm.revert();
       };
     });
-
+    
     return () => {
       ctx.revert();
     };
+    
+
   }, []);
 
   return (

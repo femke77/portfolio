@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 import Box from "@mui/system/Box";
 import TextScrambleComponent from "./TextScramble";
 
-
 // FIXME BELOW 900 NEEDS WORK
 // xs, extra-small: 0px
 // sm, small: 600px
@@ -19,7 +18,7 @@ import TextScrambleComponent from "./TextScramble";
 // lg, large: 1200px -
 // xl, extra-large: 1536px -
 
-// When the screen gets really huge, maybe just reduce center container size
+// When the screen gets really huge, maybe just reduce center container size - YES bring the entire app into the center!
 
 // FIXME : spacing between scrolling text and cards and below cards all needs updating
 // including max height??? for the cards
@@ -60,79 +59,46 @@ const ProcessAnimation = () => {
       }
     };
 
-  
-    // const ctx = gsap.context(() => {
-    //   const mm = gsap.matchMedia();
-
-    //   mm.add("(min-width: 900px)", () => {
-    //     // Horizontal scroll effect
-    //     gsap.to(sections, {
-    //       xPercent: (i) => calculateXPercent(i),
-    //       duration: (i) => 0.5 * i,
-    //       ease: "none",
-    //       scrollTrigger: {
-    //         trigger: containerRef.current,
-    //         pin: true,
-    //         scrub: 0.1,
-    //         start: "top top",
-    //         end: `+=${sections.length * 600}vw`,
-    //         invalidateOnRefresh: true,
-    //       },
-    //     });
-    //   });
-
-    //   return () => {
-    //     mm.revert();
-    //   };
-    // });
-
-    // return () => {
-    //   ctx.revert();
-    // };
-
-
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
-    
+
       mm.add("(min-width: 900px)", () => {
-     
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: containerRef.current,
-            pin: true,
-            scrub: 0.1,
-            start: "top 30vh",
-            end: () => "+=" + containerRef.current.offsetWidth, 
-            invalidateOnRefresh: true,
-          },
-        })
-    
-    
-        .to(sections, {
-          xPercent: (i) => calculateXPercent(i), 
-          ease: "none",
-          duration: (i)=>5*i ,
-        })
-    
-        // Adds a pause at the end of the animation
-        .set({}, {}, "+=15");  // Change this number to increase or decrease the pause
- 
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: containerRef.current,
+              pin: true,
+              scrub: 0.1,
+              start: "top top",
+              end: () => "100vh",
+              invalidateOnRefresh: true,
+            },
+          })
+          .to(sections, {
+            xPercent: (i) => calculateXPercent(i),
+            ease: "none",
+            duration: (i) => 5 * i,
+          })
+          // Adds a pause at the end of the animation
+          .set({}, {}, "+=15"); // Change this number to increase or decrease the pause
       });
-    
+
       return () => {
         mm.revert();
       };
     });
-    
+
     return () => {
       ctx.revert();
     };
-    
-
   }, []);
 
   return (
-    <div ref={containerRef} id="projects" style={{ overflow: "hidden", marginBottom:"50px"}}>
+    <div
+      ref={containerRef}
+      id="projects"
+      style={{ overflow: "hidden", marginBottom: "50px" }}
+    >
       <ScrollingText />
 
       <div className="pin-process">
@@ -160,11 +126,7 @@ const ProcessAnimation = () => {
                 Let's Work Together!
               </h1>
               <div style={{ marginLeft: "25px" }}>
-                <div
-                 style={
-                  styles.buttonStyles
-                }
-                >
+                <div style={styles.buttonStyles}>
                   <TextScrambleComponent
                     phrases={[
                       "Email Adam!",
@@ -174,11 +136,7 @@ const ProcessAnimation = () => {
                     style={{ fontWeight: "bold" }}
                   />
                 </div>
-                <div
-                  style={
-                    styles.buttonStyles
-                  }
-                >
+                <div style={styles.buttonStyles}>
                   <TextScrambleComponent
                     phrases={["Call Now!", "001110001111", "636.284.6762"]}
                     style={{ fontWeight: "bold" }}

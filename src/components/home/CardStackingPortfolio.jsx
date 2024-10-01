@@ -65,7 +65,6 @@ const ProcessAnimation = () => {
       const mm = gsap.matchMedia();
     
       mm.add("(min-width: 900px)", () => {
-    //  FIXME scroll up creates a jitter
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: containerRef.current,

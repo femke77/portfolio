@@ -33,7 +33,7 @@ export default function ScrollAnimation() {
         whiteSpace: "nowrap",
         width: "100%",
         overflow: "hidden",
-        marginBottom: "50px"
+        paddingBottom: "50px"
       }}
     >
       <Box

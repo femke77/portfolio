@@ -70,7 +70,7 @@ const ProcessAnimation = () => {
           scrollTrigger: {
             trigger: containerRef.current,
             pin: true,
-          
+            anticipatePin: 1,
             scrub: 0.1,
             start: "top top",
             end: () => "+=" + containerRef.current.offsetWidth * 2, 

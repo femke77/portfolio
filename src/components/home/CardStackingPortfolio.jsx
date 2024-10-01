@@ -59,31 +59,64 @@ const ProcessAnimation = () => {
         return -index * 100 + (index > 0 ? 4.5 * index : 0);
       }
     };
+
+  
+    // const ctx = gsap.context(() => {
+    //   const mm = gsap.matchMedia();
+
+    //   mm.add("(min-width: 900px)", () => {
+    //     // Horizontal scroll effect
+    //     gsap.to(sections, {
+    //       xPercent: (i) => calculateXPercent(i),
+    //       duration: (i) => 0.5 * i,
+    //       ease: "none",
+    //       scrollTrigger: {
+    //         trigger: containerRef.current,
+    //         pin: true,
+    //         scrub: 0.1,
+    //         start: "top top",
+    //         end: `+=${sections.length * 600}vw`,
+    //         invalidateOnRefresh: true,
+    //       },
+    //     });
+    //   });
+
+    //   return () => {
+    //     mm.revert();
+    //   };
+    // });
+
+    // return () => {
+    //   ctx.revert();
+    // };
+
+
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
     
       mm.add("(min-width: 900px)", () => {
-        // Create the timeline
+     
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: containerRef.current,
             pin: true,
             scrub: 0.1,
             start: "top 30vh",
-            end: "800vh", // Adjust the scroll end point if needed
+            end: () => "+=" + containerRef.current.offsetWidth, 
             invalidateOnRefresh: true,
           },
-        });
+        })
     
-        // Animate the entire container, moving all sections together
-        tl.to(sections, {
-          xPercent: (i) => calculateXPercent(i), // Move the container to the left by the total width of all sections
+    
+        .to(sections, {
+          xPercent: (i) => calculateXPercent(i), 
           ease: "none",
-          duration: 3 , // Set uniform duration
-        });
+          duration: (i)=>5*i ,
+        })
     
-        // Pause for 2 seconds at the end of the animation
-        tl.set({}, {}, "+=2"); // Pauses for 2 seconds at the end
+        // Adds a pause at the end of the animation
+        .set({}, {}, "+=15");  // Change this number to increase or decrease the pause
+ 
       });
     
       return () => {
@@ -179,6 +212,7 @@ const ProcessAnimation = () => {
           </div>
         </Box>
       </div>
+      <div className="place-holder"></div>
     </div>
   );
 };

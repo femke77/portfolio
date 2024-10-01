@@ -17,7 +17,7 @@ export default function Home() {
 
       </div>
       <Portfolio2 />
-      <div class="parallax">
+      <div class="parallax second">
 
 </div>
       <Skills />

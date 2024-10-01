@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import Box from "@mui/system/Box";
 import TextScrambleComponent from "./TextScramble";
 
+
 // FIXME BELOW 900 NEEDS WORK
 // xs, extra-small: 0px
 // sm, small: 600px
@@ -18,7 +19,7 @@ import TextScrambleComponent from "./TextScramble";
 // lg, large: 1200px -
 // xl, extra-large: 1536px -
 
-// When the screen gets really huge, maybe just reduce center container size - YES bring the entire app into the center!
+// TODO: When the screen gets really huge move all elements to the center of the screen
 
 // FIXME : spacing between scrolling text and cards and below cards all needs updating
 // including max height??? for the cards
@@ -59,47 +60,50 @@ const ProcessAnimation = () => {
       }
     };
 
+
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
-
+    
       mm.add("(min-width: 900px)", () => {
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: containerRef.current,
-              pin: true,
-              pinType: "transform",
-              scrub: 0.1,
-              start: "top top",
-              end: () => "100vh",
-              invalidateOnRefresh: true,
-            },
-          })
-          .to(sections, {
-            xPercent: (i) => calculateXPercent(i),
-            ease: "none",
-            duration: (i) => 5 * i,
-          })
-          // Adds a pause at the end of the animation
-          .set({}, {}, "+=15"); // Change this number to increase or decrease the pause
+    //  FIXME scroll up creates a jitter
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: containerRef.current,
+            pin: true,
+          
+            scrub: 0.1,
+            start: "top top",
+            end: () => "+=" + containerRef.current.offsetWidth * 2, 
+            invalidateOnRefresh: true,
+          },
+        })
+    
+    
+        tl.to(sections, {
+          xPercent: (i) => calculateXPercent(i), 
+          ease: "none",
+          duration: (i)=>0.5*i ,
+        })
+    
+        // Adds a pause at the end of the animation
+        tl.set({}, {}, "+=1");  // Change this number to increase or decrease the pause
+ 
       });
-
+    
       return () => {
         mm.revert();
       };
     });
-
+    
     return () => {
       ctx.revert();
     };
+    
+
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      id="projects"
-      style={{ overflow: "hidden", marginBottom: "50px", height: "100vh" }}
-    >
+    <div ref={containerRef} id="projects" style={{ overflow: "hidden", height:"100vh", paddingBottom:"10px"}}>
       <ScrollingText />
 
       <div className="pin-process">
@@ -127,7 +131,11 @@ const ProcessAnimation = () => {
                 Let's Work Together!
               </h1>
               <div style={{ marginLeft: "25px" }}>
-                <div style={styles.buttonStyles}>
+                <div
+                 style={
+                  styles.buttonStyles
+                }
+                >
                   <TextScrambleComponent
                     phrases={[
                       "Email Adam!",
@@ -137,7 +145,11 @@ const ProcessAnimation = () => {
                     style={{ fontWeight: "bold" }}
                   />
                 </div>
-                <div style={styles.buttonStyles}>
+                <div
+                  style={
+                    styles.buttonStyles
+                  }
+                >
                   <TextScrambleComponent
                     phrases={["Call Now!", "001110001111", "636.284.6762"]}
                     style={{ fontWeight: "bold" }}

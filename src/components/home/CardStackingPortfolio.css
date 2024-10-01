@@ -9,7 +9,7 @@
 .pin-process {
     overflow: hidden;
     width: 400%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-wrap: nowrap;
     margin-left: 5px;

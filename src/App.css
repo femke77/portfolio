@@ -7,7 +7,8 @@ img {
 }
 
 html,
-body, main {
+body,
+main {
   background: #1F1E2E;
   overflow-x: hidden;
 
@@ -68,8 +69,11 @@ main {
   }
 }
 
-html, body, #root, main {
-  background: linear-gradient(105deg,#0d324d,#1b4e74,#7f5a83,#ad94af);
+html,
+body,
+#root,
+main {
+  background: linear-gradient(105deg, #0d324d, #1b4e74, #7f5a83, #ad94af);
   background-size: 240% 240%;
   animation: gradient-animation 18s ease infinite;
 }
@@ -78,10 +82,26 @@ html, body, #root, main {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
+}
+
+.parallax {
+
+  background-image: url("city.jpg");
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 200vw;
+  margin-left: -50vw;
+  margin-bottom: 150px;
+
 }

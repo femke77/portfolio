@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import Box from "@mui/system/Box";
 import TextScrambleComponent from "./TextScramble";
 
-// FIXME : binary letter animation on email and phonek needs to change to onHover
+
 // FIXME BELOW 900 NEEDS WORK
 // xs, extra-small: 0px
 // sm, small: 600px
@@ -22,6 +22,7 @@ import TextScrambleComponent from "./TextScramble";
 // When the screen gets really huge, maybe just reduce center container size
 
 // FIXME : spacing between scrolling text and cards and below cards all needs updating
+// including max height??? for the cards
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -71,14 +72,14 @@ const ProcessAnimation = () => {
             trigger: containerRef.current,
             pin: true,
             scrub: 0.1,
-            start: "top top",
-            end: `+=${sections.length * 600}vw`,
+            start: "top 30vh",
+            end: "800vh", //FIXME extend time before next section starts to scroll
             invalidateOnRefresh: true,
           },
         });
       });
 
-      return () => {
+      return () => {  
         mm.revert();
       };
     });
@@ -89,7 +90,7 @@ const ProcessAnimation = () => {
   }, []);
 
   return (
-    <div ref={containerRef} id="projects" style={{ overflow: "hidden" }}>
+    <div ref={containerRef} id="projects" style={{ overflow: "hidden", marginBottom:"50px"}}>
       <ScrollingText />
 
       <div className="pin-process">

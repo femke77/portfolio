@@ -68,6 +68,7 @@ const ProcessAnimation = () => {
             scrollTrigger: {
               trigger: containerRef.current,
               pin: true,
+              pinType: "transform",
               scrub: 0.1,
               start: "top top",
               end: () => "100vh",
@@ -97,7 +98,7 @@ const ProcessAnimation = () => {
     <div
       ref={containerRef}
       id="projects"
-      style={{ overflow: "hidden", marginBottom: "50px" }}
+      style={{ overflow: "hidden", marginBottom: "50px", height: "100vh" }}
     >
       <ScrollingText />
 

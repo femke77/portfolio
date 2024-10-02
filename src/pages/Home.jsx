@@ -13,11 +13,11 @@ export default function Home() {
     <Box>
       <Welcome />
       <Intro />
-      <div class="parallax">
+      <div className="parallax">
 
       </div>
       <Portfolio2 />
-      <div class="parallax second">
+      <div className="parallax second">
 
 </div>
       <Skills />

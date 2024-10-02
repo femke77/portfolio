@@ -76,18 +76,32 @@ const useTextScramble = (chars = '01') => { // change scramble chars here
 // accepts phrases array and style object as props
 const TextScrambleComponent = (props) => {
   const elRef = useRef(null);
-  const { setTextScramble, cancelScramble } = useTextScramble();
-
-  const phrases = props.phrases;
   let counter = 0;
+  const { setTextScramble, cancelScramble } = useTextScramble();
+  const phrases = props.phrases;
+
 
   const handleMouseEnter = () => {
     const next = () => {
+      counter++;
+      setTextScramble(phrases[counter], elRef.current).then(() => {
+        if (counter < phrases.length-1) {
+          setTimeout(next, 200); // Continue to the next phrase after 400ms pause to read the phrase[currentIndex]
+        } else {      
+          counter = phrases.length-1; // Reset counter after completing the cycle
+        }
+      });
+    };
+
+    next();
+  };
+  const handleMouseOut = () => {
+    const next = () => {
+      counter--;
       setTextScramble(phrases[counter], elRef.current).then(() => {
         
-        counter++;
-        if (counter < phrases.length) {
-          setTimeout(next, 400); // Continue to the next phrase after 400ms pause to read the phrase[currentIndex]
+        if (counter >0) {
+          setTimeout(next, 200); // Continue to the next phrase after 400ms pause to read the phrase[currentIndex]
         } else {
         
           counter = 0; // Reset counter after completing the cycle
@@ -104,6 +118,7 @@ const TextScrambleComponent = (props) => {
      style={props.style}
       ref={elRef}
       onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseOut}
     >
       {phrases[0]}
     </div>

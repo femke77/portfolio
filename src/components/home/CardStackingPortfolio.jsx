@@ -72,7 +72,7 @@ const ProcessAnimation = () => {
             anticipatePin: 1,
             scrub: 0.1,
             start: "top top",
-            end: () => "+=" + containerRef.current.offsetWidth * 2, 
+            end: () => "+=" + containerRef.current.offsetWidth * 2,  //part of the pause at the end of the animation
             invalidateOnRefresh: true,
           },
         })
@@ -85,7 +85,7 @@ const ProcessAnimation = () => {
         })
     
         // Adds a pause at the end of the animation
-        tl.set({}, {}, "+=1");  // Change this number to increase or decrease the pause
+        tl.set({}, {}, "+=1");  // Change this number to increase or decrease the pause in combinaton with the end of the scrollTrigger
  
       });
     
@@ -137,9 +137,10 @@ const ProcessAnimation = () => {
                 >
                   <TextScrambleComponent
                     phrases={[
-                      "Email Adam!",
-                      "001110001111",
                       "adammathis.dev@gmail.com",
+                      "001110001111",
+                      "Email Adam Now",
+                      "Write an email"
                     ]}
                     style={{ fontWeight: "bold" }}
                   />
@@ -150,7 +151,7 @@ const ProcessAnimation = () => {
                   }
                 >
                   <TextScrambleComponent
-                    phrases={["Call Now!", "001110001111", "636.284.6762"]}
+                    phrases={["636.284.6762",  "001110001111", "Adam Mathis", "Call Adam"]}
                     style={{ fontWeight: "bold" }}
                   />
                 </div>

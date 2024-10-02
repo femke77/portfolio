@@ -1,6 +1,9 @@
 import React, { useEffect, useRef } from 'react';
+// scramble runs once on hover, even if mouse stays on element. want to make it keep scambling?
+// need onMouseLeave to set a isHovering state to false, and onMouseEnter to set it to true
+// then while isHovering is true, keep running the scramble function
 
-const useTextScramble = (chars = '01') => {
+const useTextScramble = (chars = '01') => { // change scramble chars here
   const queueRef = useRef([]);
   const frameRef = useRef(0);
   const frameRequestRef = useRef(null);
@@ -12,19 +15,19 @@ const useTextScramble = (chars = '01') => {
     let output = '';
     let complete = 0;
 
-    for (let i = 0; i < queueRef.current.length; i++) {
+    for (let i = 0; i < queueRef.current.length; i++) {    
       let { from, to, start, end, char } = queueRef.current[i];
+    
       if (frameRef.current >= end) {
         complete++;
-        console.log(output);
-        
+      
         output += to;
       } else if (frameRef.current >= start) {
         if (!char || Math.random() < 0.28) {
           char = randomChar();
           queueRef.current[i].char = char;
         }
-        output += `${char}`;
+        output += char;
       } else {
         output += from;
       }
@@ -73,18 +76,32 @@ const useTextScramble = (chars = '01') => {
 // accepts phrases array and style object as props
 const TextScrambleComponent = (props) => {
   const elRef = useRef(null);
-  const { setTextScramble, cancelScramble } = useTextScramble();
-
-  const phrases = props.phrases;
   let counter = 0;
+  const { setTextScramble, cancelScramble } = useTextScramble();
+  const phrases = props.phrases;
+
 
   const handleMouseEnter = () => {
     const next = () => {
+      counter++;
+      setTextScramble(phrases[counter], elRef.current).then(() => {
+        if (counter < phrases.length-1) {
+          setTimeout(next, 200); // Continue to the next phrase after 400ms pause to read the phrase[currentIndex]
+        } else {      
+          counter = phrases.length-1; // Reset counter after completing the cycle
+        }
+      });
+    };
+
+    next();
+  };
+  const handleMouseOut = () => {
+    const next = () => {
+      counter--;
       setTextScramble(phrases[counter], elRef.current).then(() => {
         
-        counter++;
-        if (counter < phrases.length) {
-          setTimeout(next, 800); // Continue to the next phrase
+        if (counter >0) {
+          setTimeout(next, 200); // Continue to the next phrase after 400ms pause to read the phrase[currentIndex]
         } else {
         
           counter = 0; // Reset counter after completing the cycle
@@ -101,6 +118,7 @@ const TextScrambleComponent = (props) => {
      style={props.style}
       ref={elRef}
       onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseOut}
     >
       {phrases[0]}
     </div>

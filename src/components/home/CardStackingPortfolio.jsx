@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import Box from "@mui/system/Box";
 import TextScrambleComponent from "./TextScramble";
 
-// FIXME : binary letter animation on email and phonek needs to change to onHover
+
 // FIXME BELOW 900 NEEDS WORK
 // xs, extra-small: 0px
 // sm, small: 600px
@@ -19,9 +19,10 @@ import TextScrambleComponent from "./TextScramble";
 // lg, large: 1200px -
 // xl, extra-large: 1536px -
 
-// When the screen gets really huge, maybe just reduce center container size
+// TODO: When the screen gets really huge move all elements to the center of the screen
 
 // FIXME : spacing between scrolling text and cards and below cards all needs updating
+// including max height??? for the cards
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,38 +59,50 @@ const ProcessAnimation = () => {
         return -index * 100 + (index > 0 ? 4.5 * index : 0);
       }
     };
+
+
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
-
+    
       mm.add("(min-width: 900px)", () => {
-        // Horizontal scroll effect
-        gsap.to(sections, {
-          xPercent: (i) => calculateXPercent(i),
-          duration: (i) => 0.5 * i,
-          ease: "none",
+        const tl = gsap.timeline({
           scrollTrigger: {
             trigger: containerRef.current,
             pin: true,
+            anticipatePin: 1,
             scrub: 0.1,
             start: "top top",
-            end: `+=${sections.length * 600}vw`,
+            end: () => "+=" + containerRef.current.offsetWidth * 1.1,  //part of the pause at the end of the animation
             invalidateOnRefresh: true,
           },
-        });
+        })
+    
+    
+        tl.to(sections, {
+          xPercent: (i) => calculateXPercent(i), 
+          ease: "none",
+          duration: (i)=>0.5*i ,
+        })
+    
+        // Adds a pause at the end of the animation
+        tl.set({}, {}, "+=1");  // Change this number to increase or decrease the pause in combinaton with the end of the scrollTrigger
+ 
       });
-
+    
       return () => {
         mm.revert();
       };
     });
-
+    
     return () => {
       ctx.revert();
     };
+    
+
   }, []);
 
   return (
-    <div ref={containerRef} id="projects" style={{ overflow: "hidden" }}>
+    <div ref={containerRef} id="projects" style={{ overflow: "hidden", height:"100vh"}}>
       <ScrollingText />
 
       <div className="pin-process">
@@ -122,24 +135,27 @@ const ProcessAnimation = () => {
                   styles.buttonStyles
                 }
                 >
+                   <a href="mailto:adammathis.dev@gmail.com" style={{textDecoration: "none", color: "black"}}>
                   <TextScrambleComponent
                     phrases={[
-                      "Email Adam!",
-                      "001110001111",
                       "adammathis.dev@gmail.com",
+                      "001110001111",
+                      "Email Adam",
+                      "Write an email"
                     ]}
                     style={{ fontWeight: "bold" }}
-                  />
+                  /></a>
                 </div>
                 <div
                   style={
                     styles.buttonStyles
                   }
                 >
+                  <a href="tel:6362846762" style={{textDecoration: "none", color: "black"}}>
                   <TextScrambleComponent
-                    phrases={["Call Now!", "001110001111", "636.284.6762"]}
+                    phrases={["636.284.6762",  "001110001111", "Adam Mathis", "Call Adam"]}
                     style={{ fontWeight: "bold" }}
-                  />
+                  /></a>
                 </div>
               </div>
             </div>
@@ -169,6 +185,7 @@ const ProcessAnimation = () => {
           </div>
         </Box>
       </div>
+      <div className="place-holder"></div>
     </div>
   );
 };

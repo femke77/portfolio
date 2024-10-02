@@ -44,6 +44,7 @@ export default function Socials({
   background,
   isMobile,
 }) {
+  
   const handleDownload = () => {
     fetch(PDF).then((response) => {
       response.blob().then((blob) => {

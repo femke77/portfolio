@@ -44,7 +44,7 @@ const [isVisible, setIsVisible] = useState(false);
     if (isVisible && textRef.current) {
       const textContent = textRef.current.innerText.split(' '); // Split by words
       let newHtml = '';
-      const animationDelay = 4; // Adjust delay
+      const animationDelay = 3; // Adjust delay
 
       textContent.forEach((word, wordIndex) => {
         newHtml += '<span class="word">';

@@ -72,7 +72,7 @@ const ProcessAnimation = () => {
             anticipatePin: 1,
             scrub: 0.1,
             start: "top top",
-            end: () => "+=" + containerRef.current.offsetWidth * 2,  //part of the pause at the end of the animation
+            end: () => "+=" + containerRef.current.offsetWidth * 1.1,  //part of the pause at the end of the animation
             invalidateOnRefresh: true,
           },
         })
@@ -135,25 +135,27 @@ const ProcessAnimation = () => {
                   styles.buttonStyles
                 }
                 >
+                   <a href="mailto:adammathis.dev@gmail.com" style={{textDecoration: "none", color: "black"}}>
                   <TextScrambleComponent
                     phrases={[
                       "adammathis.dev@gmail.com",
                       "001110001111",
-                      "Email Adam Now",
+                      "Email Adam",
                       "Write an email"
                     ]}
                     style={{ fontWeight: "bold" }}
-                  />
+                  /></a>
                 </div>
                 <div
                   style={
                     styles.buttonStyles
                   }
                 >
+                  <a href="tel:6362846762" style={{textDecoration: "none", color: "black"}}>
                   <TextScrambleComponent
                     phrases={["636.284.6762",  "001110001111", "Adam Mathis", "Call Adam"]}
                     style={{ fontWeight: "bold" }}
-                  />
+                  /></a>
                 </div>
               </div>
             </div>

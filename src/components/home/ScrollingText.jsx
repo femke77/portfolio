@@ -61,8 +61,9 @@ export default function ScrollAnimation() {
 
         {/* Alternate: */}
 
-        PROJECTS <span style={{ color: "#A5A9B4" }}> PROJECTS </span> PROJECTS
-        <span style={{ color: "#A5A9B4" }}> PROJECTS </span> PROJECTS  
+        <span style={{ color: "#A5A9B4" }}> PROJECTS </span > <span style={{ color: "#A5A9B4" }}> PROJECTS </span > PROJECTS 
+        <span style={{ color: "#A5A9B4" }}> PROJECTS </span> <span style={{ color: "#A5A9B4" }}> PROJECTS </span >  
+        <span style={{ color: "#A5A9B4" }}> PROJECTS </span >
       </Box>
     </Box>
   );

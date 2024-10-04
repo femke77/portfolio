@@ -47,7 +47,6 @@ export default function Socials({
   
   const handleDownload = () => {
     window.open(PDF, "_blank");
-
   };
   return (
     <Box

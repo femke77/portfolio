@@ -65,7 +65,7 @@ const ProcessAnimation = () => {
       }
     };
 
-    const ctx = gsap.context(() => {
+  
       const mm = gsap.matchMedia();
 
       mm.add("(min-width: 901px)", () => {
@@ -89,20 +89,22 @@ const ProcessAnimation = () => {
 
         // Adds a pause at the end of the animation
         tl.set({}, {}, "+=1"); // Change this number to increase or decrease the pause in combinaton with the end of the scrollTrigger
+     
+   
       });
 
       return () => {
+ 
         mm.revert();
       };
-    });
 
-    return () => {
-      ctx.revert();
-    };
+
   }, []);
 
   if (isMobile) {
+    ScrollTrigger.killAll()
     return (
+      // <p>mobile</p>
       <Box>
         <Grid spacing={2}  container>
           {data.map((project) => (
@@ -182,6 +184,7 @@ const ProcessAnimation = () => {
           </Grid>
         </Grid>
       </Box>
+      
     );
   }
 

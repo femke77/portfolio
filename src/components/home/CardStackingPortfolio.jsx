@@ -39,8 +39,9 @@ const styles = {
 };
 
 const ProcessAnimation = () => {
-  const isMobile = useMediaQuery("(max-width:899px)");
-
+  
+  const isMobile = useMediaQuery("(max-width:900px)");
+  
  
   const navigate = useNavigate();
 
@@ -67,7 +68,7 @@ const ProcessAnimation = () => {
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
 
-      mm.add("(min-width: 900px)", () => {
+      mm.add("(min-width: 901px)", () => {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: containerRef.current,
@@ -105,18 +106,19 @@ const ProcessAnimation = () => {
       <Box>
         <Grid spacing={2}  container>
           {data.map((project) => (
-            <Grid item xs={12} sm={6} md={6} lg={6 }>
-              <Box className="process-item-wrapper">
-              <ProjectCard project={project} key={project.name} />
+            <Grid item xs={12} sm={6} md={6} key={project.name}>
+              <Box className="process-item-wrapper" sx={{maxHeight: "475px"}}>
+              <ProjectCard project={project}  />
               </Box>
               
             </Grid>
           ))}
-          <Grid item xs={12} sm={6} md={6} lg={6 }>
+          <Grid item xs={12} sm={6} md={6} >
           <Box
             className="process-item-wrapper-last"
+            sx={{maxHeight: "475px"}}
          
-            sx={{ width: { md: "7vw", lg: "76vw", xl: "76vw" } }} // adjusting these also means adjusting the calculateXPercent function
+            // sx={{ width: { md: "70vw", lg: "76vw", xl: "76vw" } }} // adjusting these also means adjusting the calculateXPercent function
           >
             <div style={{ display: "flex" }}>
               <div style={{ padding: "25px", flexBasis: "45%" }}>
@@ -165,6 +167,7 @@ const ProcessAnimation = () => {
                     borderRadius: "10px",
                     height: "50px",
                     width: "150px",
+                    marginTop: "20px"
                   }}
                 >
                   Contact Now

@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import Box from "@mui/system/Box";
 import TextScrambleComponent from "./TextScramble";
 import { Grid, useMediaQuery } from "@mui/material";
-import { Grid4x4 } from "@mui/icons-material";
+
 
 // FIXME BELOW 900 NEEDS WORK
 // xs, extra-small: 0px

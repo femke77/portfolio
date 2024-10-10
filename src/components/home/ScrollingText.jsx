@@ -44,7 +44,7 @@ export default function ScrollAnimation() {
           fontSize: {
             xs: "80px",
             sm: "100px",
-            lg: "140px",
+            lg: "110px",
    
           },
           fontFamily: 'Mongondow',

@@ -28,6 +28,7 @@
     box-sizing: border-box;
     filter: grayscale(45%);
     font-family: Thasadith, Arial, sans-serif;
+    max-height: 500px;
 }
 
 .process-item-wrapper {

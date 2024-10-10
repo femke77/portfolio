@@ -8,7 +8,7 @@ import ProjectCard from "./ProjectCard";
 import { useNavigate } from "react-router-dom";
 import Box from "@mui/system/Box";
 import TextScrambleComponent from "./TextScramble";
-
+import { useMediaQuery } from "@mui/material";
 
 // FIXME BELOW 900 NEEDS WORK
 // xs, extra-small: 0px
@@ -38,6 +38,8 @@ const styles = {
 };
 
 const ProcessAnimation = () => {
+ 
+  const isMobile = useMediaQuery("(max-width:899px)");
   const navigate = useNavigate();
 
   const containerRef = useRef(null);
@@ -101,7 +103,13 @@ const ProcessAnimation = () => {
 
   }, []);
 
+  if (isMobile) {
+    return <div>Mobile</div>;
+  }
+
   return (
+    <>
+    
     <div ref={containerRef} id="projects" style={{ overflow: "hidden", height:"100vh"}}>
       <ScrollingText />
 
@@ -187,6 +195,7 @@ const ProcessAnimation = () => {
       </div>
       <div className="place-holder"></div>
     </div>
+    </>
   );
 };
 

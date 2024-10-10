@@ -68,7 +68,7 @@ const ProcessAnimation = () => {
   
       const mm = gsap.matchMedia();
 
-      mm.add("(min-width: 901px)", () => {
+      mm.add("(min-width: 901px)", (context) => {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: containerRef.current,
@@ -80,7 +80,7 @@ const ProcessAnimation = () => {
             invalidateOnRefresh: true,
           },
         });
-
+        context.add(tl);
         tl.to(sections, {
           xPercent: (i) => calculateXPercent(i),
           ease: "none",
@@ -102,10 +102,9 @@ const ProcessAnimation = () => {
   }, []);
 
   if (isMobile) {
-    ScrollTrigger.killAll()
+    ScrollTrigger.killAll() //got to disable the scroll trigger for mobile
     return (
-      // <p>mobile</p>
-      <Box>
+      <Box id="projects" sx={{margin: "10px"}}>
         <Grid spacing={2}  container>
           {data.map((project) => (
             <Grid item xs={12} sm={6} md={6} key={project.name}>
@@ -120,7 +119,6 @@ const ProcessAnimation = () => {
             className="process-item-wrapper-last"
             sx={{maxHeight: "475px"}}
          
-            // sx={{ width: { md: "70vw", lg: "76vw", xl: "76vw" } }} // adjusting these also means adjusting the calculateXPercent function
           >
             <div style={{ display: "flex" }}>
               <div style={{ padding: "25px", flexBasis: "45%" }}>

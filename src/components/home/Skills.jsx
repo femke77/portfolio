@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import javaScriptLogo from "../../assets/images/logos/javascript-logo.png";
 import bootstrapLogo from "../../assets/images/logos/bootstrap-logo.png";
 import cssLogo from "../../assets/images/logos/css-logo.png";
@@ -155,6 +155,8 @@ export default function Skills() {
   }
 
   return (
+    <>
+    <Typography variant="h2" sx={{ textAlign: "center", marginBottom: "50px" }}>Skills</Typography>
     <Box
       id="skills"
       ref={wrapperRef}
@@ -178,5 +180,6 @@ export default function Skills() {
         />
       ))}
     </Box>
+    </>
   );
 }

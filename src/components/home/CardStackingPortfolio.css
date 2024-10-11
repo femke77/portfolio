@@ -1,4 +1,5 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&display=swap'); */
+/*  see index.html for how to preload fonts async for performance (reduces blocking time and speed index */
 
 .thasadith-regular {
     font-family: "Thasadith", sans-serif;
@@ -12,9 +13,6 @@
     height: 100vh;
     display: flex;
     flex-wrap: nowrap;
-
- 
-
 }
 
 .process-item-wrapper,
@@ -28,7 +26,7 @@
     box-sizing: border-box;
     filter: grayscale(45%);
     font-family: Thasadith, Arial, sans-serif;
-    /* max-height: 550px; */
+    max-height: 550px;
 }
 
 .process-item-wrapper {

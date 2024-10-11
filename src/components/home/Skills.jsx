@@ -13,6 +13,8 @@ import nodeLogo from "../../assets/images/logos/nodeJS-logo.png";
 import postgresqlLogo from "../../assets/images/logos/postgresql-logo.png";
 import reactLogo from "../../assets/images/logos/react-logo.png";
 import sequelizeLogo from "../../assets/images/logos/sequelize-logo.png";
+import { styled } from "@mui/material/styles";
+import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 
 // doubled on purpose for the extra large screens
 const skills = [
@@ -42,17 +44,29 @@ const skills = [
   { title: "Handlebars", src: handlebarsLogo, alt: "Handlebars Logo" },
 ];
 
+
+const StyledTooltip = styled(({ className, ...props }) => (
+  <Tooltip {...props} arrow classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.arrow}`]: {
+    color: theme.palette.common.black,
+  },
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor: theme.palette.common.black,
+  },
+}));
+
 export default function Skills() {
   const boxesRef = useRef([]);
   const wrapperRef = useRef(null);
-
+ let loop;
   useEffect(() => {
     const boxes = gsap.utils.toArray(boxesRef.current);
     gsap.set(boxes, {
       backgroundColor: "transparent",
     });
 
-    const loop = horizontalLoop(boxes, { paused: false, repeat: -1 });
+    loop = horizontalLoop(boxes, { paused: false, repeat: -1 });
 
     return () => {
       loop.kill();
@@ -161,14 +175,18 @@ export default function Skills() {
       id="skills"
       ref={wrapperRef}
       style={{ overflow: "hidden", whiteSpace: "nowrap", marginTop: "25px" }}
+      onMouseEnter={()=>{loop.paused(true)}}
+    onMouseLeave={()=>{loop.paused(false)}}
     >
-      {skills.map((skill, index) => (
+      {skills.map(({title, src, alt}, index) => (
+  
+          <StyledTooltip key={index} title={title}>
         <img
-          key={index}
+       
           ref={(el) => (boxesRef.current[index] = el)}
-          src={skill.src}
-          alt={skill.alt}
-          title={skill.title}
+          src={src}
+          alt={alt}
+      
           style={{
             width: "100px",
             height: "75px",
@@ -178,6 +196,8 @@ export default function Skills() {
             margin: "15px",
           }}
         />
+        </StyledTooltip>
+      
       ))}
     </Box>
     </>

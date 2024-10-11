@@ -44,7 +44,6 @@ const skills = [
   { title: "Handlebars", src: handlebarsLogo, alt: "Handlebars Logo" },
 ];
 
-
 const StyledTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} arrow classes={{ popper: className }} />
 ))(({ theme }) => ({
@@ -59,7 +58,8 @@ const StyledTooltip = styled(({ className, ...props }) => (
 export default function Skills() {
   const boxesRef = useRef([]);
   const wrapperRef = useRef(null);
- let loop;
+  let loop;
+  
   useEffect(() => {
     const boxes = gsap.utils.toArray(boxesRef.current);
     gsap.set(boxes, {
@@ -170,36 +170,41 @@ export default function Skills() {
 
   return (
     <>
-    <Typography variant="h2" sx={{ textAlign: "center", marginBottom: "50px" }}>Skills</Typography>
-    <Box
-      id="skills"
-      ref={wrapperRef}
-      style={{ overflow: "hidden", whiteSpace: "nowrap", marginTop: "25px" }}
-      onMouseEnter={()=>{loop.paused(true)}}
-    onMouseLeave={()=>{loop.paused(false)}}
-    >
-      {skills.map(({title, src, alt}, index) => (
-  
+      <Typography
+        variant="h2"
+        sx={{ textAlign: "center", marginBottom: "50px" }}
+      >
+        Skills
+      </Typography>
+      <Box
+        id="skills"
+        ref={wrapperRef}
+        style={{ overflow: "hidden", whiteSpace: "nowrap", marginTop: "25px" }}
+        onMouseEnter={() => {
+          loop.paused(true);
+        }}
+        onMouseLeave={() => {
+          loop.paused(false);
+        }}
+      >
+        {skills.map(({ title, src, alt }, index) => (
           <StyledTooltip key={index} title={title}>
-        <img
-       
-          ref={(el) => (boxesRef.current[index] = el)}
-          src={src}
-          alt={alt}
-      
-          style={{
-            width: "100px",
-            height: "75px",
-            display: "inline-block",
-            objectFit: "contain",
-            backgroundColor: "transparent",
-            margin: "15px",
-          }}
-        />
-        </StyledTooltip>
-      
-      ))}
-    </Box>
+            <img
+              ref={(el) => (boxesRef.current[index] = el)}
+              src={src}
+              alt={alt}
+              style={{
+                width: "100px",
+                height: "75px",
+                display: "inline-block",
+                objectFit: "contain",
+                backgroundColor: "transparent",
+                margin: "15px",
+              }}
+            />
+          </StyledTooltip>
+        ))}
+      </Box>
     </>
   );
 }

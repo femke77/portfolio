@@ -73,7 +73,7 @@ const ProcessAnimation = () => {
           scrollTrigger: {
             trigger: containerRef.current,
             pin: true,
-            anticipatePin: 1,
+            // anticipatePin: 1,
             scrub: 0.1,
             start: "top top",
             end: () => "+=" + containerRef.current.offsetWidth * 1.1, //part of the pause at the end of the animation

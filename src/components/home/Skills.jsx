@@ -1,18 +1,18 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Box, Typography } from "@mui/material";
-import javaScriptLogo from "../../assets/images/logos/javascript-logo.png";
-import bootstrapLogo from "../../assets/images/logos/bootstrap-logo.png";
-import cssLogo from "../../assets/images/logos/css-logo.png";
-import expressLogo from "../../assets/images/logos/express-logo.png";
-import githubLogo from "../../assets/images/logos/github-logo.png";
-import handlebarsLogo from "../../assets/images/logos/handlebars-logo.png";
-import mongodbLogo from "../../assets/images/logos/mongodb-logo.png";
-import muiLogo from "../../assets/images/logos/mui-logo.png";
-import nodeLogo from "../../assets/images/logos/nodeJS-logo.png";
-import postgresqlLogo from "../../assets/images/logos/postgresql-logo.png";
-import reactLogo from "../../assets/images/logos/react-logo.png";
-import sequelizeLogo from "../../assets/images/logos/sequelize-logo.png";
+import javaScriptLogo from "../../assets/images/logos/javascript-logo.webp";
+import bootstrapLogo from "../../assets/images/logos/bootstrap-logo.webp";
+import cssLogo from "../../assets/images/logos/css-logo.webp";
+import expressLogo from "../../assets/images/logos/express-logo.webp";
+import githubLogo from "../../assets/images/logos/github-logo.webp";
+import handlebarsLogo from "../../assets/images/logos/handlebars-logo.webp";
+import mongodbLogo from "../../assets/images/logos/mongodb-logo.webp";
+import muiLogo from "../../assets/images/logos/mui-logo.webp";
+import nodeLogo from "../../assets/images/logos/nodeJS-logo.webp";
+import postgresqlLogo from "../../assets/images/logos/postgresql-logo.webp";
+import reactLogo from "../../assets/images/logos/react-logo.webp";
+import sequelizeLogo from "../../assets/images/logos/sequelize-logo.webp";
 import { styled } from "@mui/material/styles";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 
@@ -59,7 +59,7 @@ export default function Skills() {
   const boxesRef = useRef([]);
   const wrapperRef = useRef(null);
   let loop;
-  
+
   useEffect(() => {
     const boxes = gsap.utils.toArray(boxesRef.current);
     gsap.set(boxes, {
@@ -190,6 +190,7 @@ export default function Skills() {
         {skills.map(({ title, src, alt }, index) => (
           <StyledTooltip key={index} title={title}>
             <img
+              loading="lazy"
               ref={(el) => (boxesRef.current[index] = el)}
               src={src}
               alt={alt}

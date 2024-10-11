@@ -15,7 +15,7 @@ export default function ProjectCard({ project, index }) {
         />
 
       </a>{" "}
-       <a className="icon-hover" href="https://github.com/adam" ><i className=" fa-brands fa-github fa-5x fa" style={{color: "gray", backgroundColor: "white", borderRadius: "50%"}}></i></a>
+       <a className="icon-hover" href="https://github.com/adam" ><i className=" fa-brands fa-github fa-5x fa" style={{color: "gray",  borderRadius: "50%"}}></i></a>
 </div>
       {/* shows on page load*/}
       <div

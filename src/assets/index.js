@@ -1,11 +1,11 @@
 export {
     default as avatar
-} from "./projects/avatar.jpg"
+} from "./projects/nature.webp"
 
 export {
     default as greentrail
-} from "./projects/greentrail-avatar.jpg"
+} from "./projects/greentrail-avatar.webp"
 
 export {
     default as travelbuddy
-} from "./projects/travelbuddy-avatar.jpg"
+} from "./projects/bali.webp"
